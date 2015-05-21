@@ -20,6 +20,6 @@ public class SampleDeployClass {
         System.debug('Hello World  :) :) ');
         
                System.debug('Welcome to Mindtree :) :) ');
-        System.debug('Welcome to Mindtree shireen :) :) ');
+        
     }
 }
