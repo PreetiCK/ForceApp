@@ -11,11 +11,7 @@
 
     <!-- Test out deploy and retrieve verbs for package 'mypkg' -->
     <target name="test">
-	<property name="proxy.host" value="172.22.218.218"/>
-	<property name="proxy.port" value="8085"/>
-	<property name="proxy.user" value="m1017042"/>
-	<property name="proxy.pwd" value="MayPassword2015"/>
-	<setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />
+
       <!-- Upload the contents of the "mypkg" package -->
       <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="mypkg" rollbackOnError="true"/>
       <mkdir dir="retrieveOutput"/>
@@ -26,11 +22,7 @@
     <!-- Retrieve an unpackaged set of metadata from your org -->
     <!-- The file unpackaged/package.xml lists what is to be retrieved -->
     <target name="retrieveUnpackaged">
-	<property name="proxy.host" value="172.22.218.218"/>
-	<property name="proxy.port" value="8085"/>
-	<property name="proxy.user" value="m1017042"/>
-	<property name="proxy.pwd" value="MayPassword2015"/>
-	<setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />
+	
       <mkdir dir="retrieveUnpackaged"/>
       <!-- Retrieve the contents into another directory -->
       <sf:retrieve username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" retrieveTarget="retrieveUnpackaged" unpackaged="unpackaged/package.xml"/>
@@ -62,11 +54,8 @@
 
     <!-- Deploy the unpackaged set of metadata retrieved with retrieveUnpackaged -->
     <target name="deployUnpackaged">
-	<property name="proxy.host" value="172.22.218.218"/>
-	<property name="proxy.port" value="8085"/>
-	<property name="proxy.user" value="m1017042"/>
-	<property name="proxy.pwd" value="MayPassword2015"/>
-	<setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />
+	
+
       <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="retrieveUnpackaged" rollbackOnError="true"/>
     </target>
 
